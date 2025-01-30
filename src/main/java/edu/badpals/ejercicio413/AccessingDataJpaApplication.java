@@ -18,15 +18,4 @@ public class AccessingDataJpaApplication {
     SpringApplication.run(AccessingDataJpaApplication.class);
   }
 
-  @Bean
-  public CommandLineRunner demoPelicula(PeliculaRepository peliculas) {
-    return (args) -> {
-      peliculas.save(new Pelicula("Avatar", "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Qzx9P3SPQhxUCGOuXLMbiIB7GleKqi.png"));
-      peliculas.save(new Pelicula("The Shawshank Redemption", "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Qzx9P3SPQhxUCGOuXLMbiIB7GleKqi.png"));
-      peliculas.save(new Pelicula("Pulp Fiction", "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-Qzx9P3SPQhxUCGOuXLMbiIB7GleKqi.png"));
-      peliculas.save(new Pelicula("Pulp Fiction", "https://i.blogs.es/8ef1df/joker-joaquin-phoenix/1366_2000.jpg"));
-
-
-    };
-  }
 }
