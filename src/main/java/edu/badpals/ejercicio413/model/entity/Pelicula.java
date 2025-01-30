@@ -19,18 +19,18 @@ public class Pelicula {
     private String imagenUrl;
 
     @OneToMany(mappedBy = "pelicula")
-    private List<Vote> votes;
+    private List<Usuario> usuarios;
 
     public Pelicula(String titulo, String imagenUrl) {
         this.titulo = titulo;
         this.imagenUrl = imagenUrl;
     }
 
-    public void addVote(Vote vote){
-        votes.add(vote);
+    public void addVote(Usuario vote){
+        usuarios.add(vote);
     }
 
     public int getNumberVotes(){
-        return votes.size();
+        return usuarios.size();
     }
 }

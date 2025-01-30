@@ -9,7 +9,7 @@
 <body>
 <h1>Elige tu película favorita</h1>
 
-<form th:action="@{/peliculas/votar/{idPelicula}/{email}(idPelicula=${selectedPeliculaId}, email=${email})}" method="post">
+<form th:action="@{/peliculas/votar}" method="post">
     <div class="movies-grid">
         <div th:each="pelicula : ${peliculas}" class="movie-card">
             <img th:src="${pelicula.imagenUrl}" th:alt="${pelicula.titulo + ' movie poster'}">
@@ -22,7 +22,7 @@
             </div>
             <label>
                 Voto:
-                <input type="radio" name="selectedPeliculaId" th:value="${pelicula.id}" required>
+                <input type="radio" name="idPelicula" th:value="${pelicula.id}" required>
             </label>
         </div>
     </div>

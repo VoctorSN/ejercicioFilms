@@ -27,19 +27,6 @@ public class AccessingDataJpaApplication {
       peliculas.save(new Pelicula("Pulp Fiction", "https://i.blogs.es/8ef1df/joker-joaquin-phoenix/1366_2000.jpg"));
 
 
-      log.info("Peliculas found with findAll():");
-      log.info("-------------------------------");
-      peliculas.findAll().forEach(pelicula -> {
-        log.info(pelicula.toString());
-      });
-      log.info("");
-
-      Pelicula pelicula = peliculas.findById(1L);
-      log.info("Pelicula found with findById(1L):");
-      log.info("--------------------------------");
-      log.info(pelicula.toString());
-      log.info("");
-
     };
   }
 }
