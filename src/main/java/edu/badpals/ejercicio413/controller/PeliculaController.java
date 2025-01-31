@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Optional;
+
 @Controller
 public class PeliculaController {
 
@@ -31,10 +33,10 @@ public class PeliculaController {
 
     @PostMapping("/peliculas/votar")
     public String votarPelicula(@RequestParam Long idPelicula, @RequestParam String email, Model model) {
-        Pelicula pelicula = peliculaService.get(idPelicula).orElse(null);
+        Optional<Pelicula> pelicula = peliculaService.get(idPelicula);
         Usuario usuario = usuarioService.findByEmail(email).orElse(new Usuario(email));
-        if (pelicula != null) {
-            usuario.setPelicula(pelicula);
+        if (pelicula.isPresent()) {
+            usuario.setPelicula(pelicula.get());
             usuarioService.guardar(usuario);
         }
         return "redirect:/peliculas";
