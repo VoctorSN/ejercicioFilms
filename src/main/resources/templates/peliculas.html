@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<h1>Elige tu película favorita</h1>
+<h1 class="h1">Elige tu película favorita</h1>
 
 <form th:action="@{/peliculas/votar}" method="post">
     <div class="movies-grid">
         <div th:each="pelicula : ${peliculas}" class="movie-card">
+            <label>
             <img th:src="${pelicula.imagenUrl}" th:alt="${pelicula.titulo + ' movie poster'}">
             <div class="like-button">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -20,16 +21,17 @@
                 </svg>
                 <span class="like-count" th:text="${pelicula.getNumberVotes()}">0</span>
             </div>
-            <label>
                 Voto:
                 <input type="radio" name="idPelicula" th:value="${pelicula.id}" required>
             </label>
         </div>
     </div>
+    <div class="div_botones">
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
     <br/>
     <button type="submit">Votar</button>
+    </div>
 </form>
 </body>
 </html>
